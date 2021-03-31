@@ -1,0 +1,31 @@
+{
+  "name": "deep-counter",
+  "version": "0.0.0",
+  "description": "Count Numbers and Words in JSON Data",
+  "main": "deep-counter.js",
+  "files": [
+    "deep-counter.js",
+    "merge-counts.js"
+  ],
+  "scripts": {
+    "test": "node test.merge.js && node test.count.js",
+    "test:count": "node test.count.js",
+    "test:merge": "node test.merge.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DanielJDufour/deep-counter.git"
+  },
+  "keywords": [
+    "count",
+    "json",
+    "numbers",
+    "strings"
+  ],
+  "author": "Daniel J. Dufour",
+  "license": "CC0-1.0",
+  "bugs": {
+    "url": "https://github.com/DanielJDufour/deep-counter/issues"
+  },
+  "homepage": "https://github.com/DanielJDufour/deep-counter#readme"
+}
