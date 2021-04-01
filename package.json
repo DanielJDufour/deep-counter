@@ -1,6 +1,6 @@
 {
   "name": "deep-counter",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Count Numbers and Words in JSON Data",
   "main": "deep-counter.js",
   "files": [
