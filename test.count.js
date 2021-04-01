@@ -84,3 +84,8 @@ test("count nested data", ({ eq }) => {
     }    
   });
 });
+
+test("count large array of strings and numbers", ({ eq }) => {
+  const data = require("./test-data/proj4js-definitions.json");
+  const results = count({ data });
+});

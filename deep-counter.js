@@ -12,7 +12,7 @@ const count = (options) => {
     split_strings_on=" "
   } = options;
 
-  if (!data) throw new Error("[deep-counter] you called count without a data property set")
+  if (!('data' in options)) throw new Error("[deep-counter] you called count without a data property set")
 
   const results = {
     strings: {},
