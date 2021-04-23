@@ -11,7 +11,9 @@ test("count numbers in an array", ({ eq }) => {
       2: { count: 2, value: 2 },
       3: { count: 3, value: 3 }
     },
-    strings: {}
+    strings: {},
+    null: 0,
+    undefined: 0
   })
 });
 
@@ -26,7 +28,9 @@ test("count words in a string", ({ eq }) => {
       "over": { count: 1, first: 0, last: 0, value: "over" },
       "moon": { count: 1, first: 0, last: 1, value: "moon" }
     },
-    numbers: {}
+    numbers: {},
+    null: 0,
+    undefined: 0
   })
 });
 
@@ -45,7 +49,9 @@ test("count mixed data", ({ eq }) => {
       the: { value: 'the', count: 1, first: 0, last: 0 },
       tree: { value: 'tree', count: 1, first: 0, last: 1 }
     },
-    numbers: { '123': { count: 1, value: 123 }, '234': { count: 2, value: 234 } }
+    numbers: { '123': { count: 1, value: 123 }, '234': { count: 2, value: 234 } },
+    null: 0,
+    undefined: 0
   })
 });
 
@@ -81,8 +87,24 @@ test("count nested data", ({ eq }) => {
       '4': { count: 1, value: 4 },
       '5': { count: 1, value: 5 },
       '6': { count: 1, value: 6 }
-    }    
+    },
+    null: 0,
+    undefined: 0  
   });
+});
+
+test("count nulls and undefineds", ({ eq }) => {
+  const data = [1, null, null, 2, undefined, 2];
+  const results = count({ data });
+  eq(results, {
+    numbers: {
+      1: { count: 1, value: 1 },
+      2: { count: 2, value: 2 },
+    },
+    strings: {},
+    null: 2,
+    undefined: 1
+  })
 });
 
 test("count large array of strings and numbers", ({ eq }) => {

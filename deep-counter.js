@@ -3,20 +3,23 @@ const { forEach } = require("advarr");
 const merge = require("./merge-counts");
 
 const count = (options) => {
-
   let {
     data,
-    debug,
+    debug_level=0,
     count_numbers=true,
     count_strings=true,
     split_strings_on=" "
   } = options;
 
+  if (debug_level >= 1) console.log("[deep-counter] options:", options);
+
   if (!('data' in options)) throw new Error("[deep-counter] you called count without a data property set")
 
   const results = {
     strings: {},
-    numbers: {}
+    numbers: {},
+    null: 0,
+    undefined: 0
   };
 
   if (Array.isArray(data)) {
@@ -26,6 +29,10 @@ const count = (options) => {
         into: results
       });
     });
+  } else if (data === null) {
+    results.null++;
+  } else if (data === undefined) {
+    results.undefined++;
   } else if (typeof data === "object") {
     merge({
       from: count({ ...options, data: Object.keys(data) }),
